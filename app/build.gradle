@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion compileSdk
@@ -7,8 +9,8 @@ android {
         applicationId "pub.devrel.easypermissions.sample"
         minSdkVersion 14
         targetSdkVersion targetSdk
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
 
     buildTypes {
@@ -20,6 +22,10 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation project(':easypermissions')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.61"
+}
+repositories {
+    mavenCentral()
 }
