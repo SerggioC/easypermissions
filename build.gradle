@@ -27,14 +27,14 @@ task clean(type: Delete) {
 }
 
 ext {
-    projectName = 'EasyPermissions'
-    projectDesc = 'A wrapper library for basic Android M system permissions logic'
+    projectName = 'EasyPermissions.kt'
+    projectDesc = 'A wrapper library for basic Android M system permissions logic in Kotlin'
 
-    githubUrl = 'https://github.com/googlesamples/easypermissions'
+    githubUrl = 'https://github.com/SerggioC/easypermissions'
 
-    mavenGroup = 'pub.devrel'
+    mavenGroup = 'com.sergiocruz'
     mavenArtifactId = 'easypermissions'
-    mavenVersion = '3.0.0'
+    mavenVersion = '3.1.0'
 
     bintrayOrg = 'easygoogle'
 

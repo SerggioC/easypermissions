@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pub.devrel.easypermissions.sample
+package com.sergiocruz.easypermissions.sample
 
 import android.Manifest
 import android.content.Intent
@@ -23,9 +23,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 
-import pub.devrel.easypermissions.AfterPermissionGranted
-import pub.devrel.easypermissions.AppSettingsDialog
-import pub.devrel.easypermissions.EasyPermissions
+import com.sergiocruz.easypermissions.AfterPermissionGranted
+import com.sergiocruz.easypermissions.AppSettingsDialog
+import com.sergiocruz.easypermissions.EasyPermissions
 
 class MainActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks,
     EasyPermissions.RationaleCallbacks {

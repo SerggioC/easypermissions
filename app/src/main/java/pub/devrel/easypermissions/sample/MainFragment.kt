@@ -1,4 +1,4 @@
-package pub.devrel.easypermissions.sample
+package com.sergiocruz.easypermissions.sample
 
 import android.Manifest
 import android.os.Bundle
@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import pub.devrel.easypermissions.AfterPermissionGranted
-import pub.devrel.easypermissions.EasyPermissions
+import com.sergiocruz.easypermissions.AfterPermissionGranted
+import com.sergiocruz.easypermissions.EasyPermissions
 
 /**
  * Created in [R.layout.activity_main]

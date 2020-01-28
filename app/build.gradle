@@ -6,7 +6,7 @@ android {
     compileSdkVersion compileSdk
 
     defaultConfig {
-        applicationId "pub.devrel.easypermissions.sample"
+        applicationId "com.sergiocruz.easypermissions.sample"
         minSdkVersion 14
         targetSdkVersion targetSdk
         versionCode 2

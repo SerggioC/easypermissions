@@ -1,3 +1,3 @@
 -keepclassmembers class * {
-    @pub.devrel.easypermissions.AfterPermissionGranted <methods>;
+    @com.sergiocruz.easypermissions.AfterPermissionGranted <methods>;
 }
