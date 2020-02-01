@@ -1,4 +1,4 @@
-package com.sergiocruz.easypermissions
+package com.serggioc.easypermissions
 
 import android.app.Activity
 import android.content.Context
@@ -6,14 +6,13 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Parcel
 import android.os.Parcelable
-import android.text.TextUtils
 import android.util.Log
 import androidx.annotation.RestrictTo
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.sergiocruz.easypermissions.AppSettingsDialog.Builder
+import com.serggioc.easypermissions.AppSettingsDialog.Builder
 
 /**
  * Dialog to prompt the user to go to the app's settings screen and enable permissions. If the user

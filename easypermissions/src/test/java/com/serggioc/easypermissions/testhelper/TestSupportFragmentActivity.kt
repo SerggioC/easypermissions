@@ -1,9 +1,9 @@
-package com.sergiocruz.easypermissions.testhelper
+package com.serggioc.easypermissions.testhelper
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
-import com.sergiocruz.easypermissions.AfterPermissionGranted
-import com.sergiocruz.easypermissions.EasyPermissions
+import com.serggioc.easypermissions.AfterPermissionGranted
+import com.serggioc.easypermissions.EasyPermissions
 
 class TestSupportFragmentActivity : FragmentActivity(), EasyPermissions.PermissionCallbacks,
     EasyPermissions.RationaleCallbacks {

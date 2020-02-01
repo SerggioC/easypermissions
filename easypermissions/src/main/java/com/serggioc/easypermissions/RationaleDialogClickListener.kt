@@ -1,10 +1,10 @@
-package com.sergiocruz.easypermissions
+package com.serggioc.easypermissions
 
 import android.app.Activity
 import android.app.Dialog
 import android.content.DialogInterface
 import androidx.fragment.app.Fragment
-import com.sergiocruz.easypermissions.helper.PermissionHelper
+import com.serggioc.easypermissions.helper.PermissionHelper
 
 /**
  * Click listener for either [RationaleDialogFragment] or [RationaleDialogFragmentCompat].

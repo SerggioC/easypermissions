@@ -1,4 +1,4 @@
-package com.sergiocruz.easypermissions.helper
+package com.serggioc.easypermissions.helper
 
 import android.app.Activity
 import android.content.Context

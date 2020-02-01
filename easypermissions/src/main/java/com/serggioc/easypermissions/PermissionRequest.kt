@@ -1,4 +1,4 @@
-package com.sergiocruz.easypermissions
+package com.serggioc.easypermissions
 
 import android.app.Activity
 import androidx.annotation.RestrictTo
@@ -7,9 +7,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.fragment.app.Fragment
 
-import java.util.Arrays
-
-import com.sergiocruz.easypermissions.helper.PermissionHelper
+import com.serggioc.easypermissions.helper.PermissionHelper
 
 /**
  * An immutable model object that holds all of the parameters associated with a permission request,

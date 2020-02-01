@@ -1,9 +1,9 @@
-package com.sergiocruz.easypermissions.helper
+package com.serggioc.easypermissions.helper
 
 import android.util.Log
 import androidx.annotation.StyleRes
 import androidx.fragment.app.FragmentManager
-import com.sergiocruz.easypermissions.RationaleDialogFragmentCompat
+import com.serggioc.easypermissions.RationaleDialogFragmentCompat
 
 /**
  * Implementation of [PermissionHelper] for Support Library host classes.

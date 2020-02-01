@@ -1,4 +1,4 @@
-package com.sergiocruz.easypermissions.helper
+package com.serggioc.easypermissions.helper
 
 import android.content.Context
 import androidx.fragment.app.Fragment

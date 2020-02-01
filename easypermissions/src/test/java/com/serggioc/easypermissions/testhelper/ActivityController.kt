@@ -1,4 +1,4 @@
-package com.sergiocruz.easypermissions.testhelper
+package com.serggioc.easypermissions.testhelper
 
 import android.app.Activity
 

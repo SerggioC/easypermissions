@@ -1,13 +1,13 @@
-package com.sergiocruz.easypermissions.testhelper
+package com.serggioc.easypermissions.testhelper
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.sergiocruz.easypermissions.AfterPermissionGranted
-import com.sergiocruz.easypermissions.EasyPermissions
-import com.sergiocruz.easypermissions.R
+import com.serggioc.easypermissions.AfterPermissionGranted
+import com.serggioc.easypermissions.EasyPermissions
+import com.serggioc.easypermissions.R
 
 class TestFragment : Fragment(), EasyPermissions.PermissionCallbacks,
     EasyPermissions.RationaleCallbacks {

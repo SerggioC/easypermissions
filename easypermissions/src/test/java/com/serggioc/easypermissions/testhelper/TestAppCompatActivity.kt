@@ -1,10 +1,10 @@
-package com.sergiocruz.easypermissions.testhelper
+package com.serggioc.easypermissions.testhelper
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.sergiocruz.easypermissions.AfterPermissionGranted
-import com.sergiocruz.easypermissions.EasyPermissions
-import com.sergiocruz.easypermissions.R
+import com.serggioc.easypermissions.AfterPermissionGranted
+import com.serggioc.easypermissions.EasyPermissions
+import com.serggioc.easypermissions.R
 
 class TestAppCompatActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks,
     EasyPermissions.RationaleCallbacks {

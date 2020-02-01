@@ -1,4 +1,4 @@
-package com.sergiocruz.easypermissions
+package com.serggioc.easypermissions
 
 import android.app.Application
 import android.content.ComponentName
@@ -20,11 +20,11 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.Shadows.shadowOf
 import org.robolectric.annotation.Config
 import org.robolectric.shadows.ShadowApplication
-import com.sergiocruz.easypermissions.AppSettingsDialog.CREATOR.DEFAULT_SETTINGS_REQ_CODE
-import com.sergiocruz.easypermissions.testhelper.ActivityController
-import com.sergiocruz.easypermissions.testhelper.FragmentController
-import com.sergiocruz.easypermissions.testhelper.TestActivity
-import com.sergiocruz.easypermissions.testhelper.TestFragment
+import com.serggioc.easypermissions.AppSettingsDialog.CREATOR.DEFAULT_SETTINGS_REQ_CODE
+import com.serggioc.easypermissions.testhelper.ActivityController
+import com.serggioc.easypermissions.testhelper.FragmentController
+import com.serggioc.easypermissions.testhelper.TestActivity
+import com.serggioc.easypermissions.testhelper.TestFragment
 import java.util.*
 
 @RunWith(RobolectricTestRunner::class)

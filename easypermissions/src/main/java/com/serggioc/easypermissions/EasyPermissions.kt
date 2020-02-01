@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.sergiocruz.easypermissions
+package com.serggioc.easypermissions
 
 import android.Manifest
 import android.app.Activity
@@ -29,7 +29,7 @@ import android.util.Log
 import java.lang.reflect.InvocationTargetException
 import java.util.ArrayList
 
-import com.sergiocruz.easypermissions.helper.PermissionHelper
+import com.serggioc.easypermissions.helper.PermissionHelper
 
 /**
  * Utility to request and check System permissions for apps targeting Android M (API &gt;= 23).

@@ -1,11 +1,11 @@
-package com.sergiocruz.easypermissions.helper
+package com.serggioc.easypermissions.helper
 
 import android.app.Activity
 import android.content.Context
 import android.util.Log
 import androidx.annotation.StyleRes
 import androidx.core.app.ActivityCompat
-import com.sergiocruz.easypermissions.RationaleDialogFragment
+import com.serggioc.easypermissions.RationaleDialogFragment
 
 /**
  * Permissions helper for [Activity].

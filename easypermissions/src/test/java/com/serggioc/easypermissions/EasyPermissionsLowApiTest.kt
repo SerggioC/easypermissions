@@ -1,4 +1,4 @@
-package com.sergiocruz.easypermissions
+package com.serggioc.easypermissions
 
 import android.Manifest
 import android.content.Context
@@ -15,11 +15,11 @@ import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import com.sergiocruz.easypermissions.testhelper.*
+import com.serggioc.easypermissions.testhelper.*
 import java.util.*
 
 /**
- * Low-API (SDK = 19) tests for [com.sergiocruz.easypermissions.EasyPermissions].
+ * Low-API (SDK = 19) tests for [com.serggioc.easypermissions.EasyPermissions].
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [19])

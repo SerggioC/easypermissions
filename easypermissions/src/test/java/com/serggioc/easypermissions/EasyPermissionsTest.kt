@@ -1,9 +1,8 @@
-package com.sergiocruz.easypermissions
+package com.serggioc.easypermissions
 
 import android.Manifest
 import android.app.Application
 import android.app.Dialog
-import android.app.Fragment
 import android.content.pm.PackageManager
 import android.widget.TextView
 
@@ -20,15 +19,14 @@ import org.robolectric.shadows.ShadowApplication
 
 import java.util.ArrayList
 import java.util.Arrays
-import java.util.Collections
 
 import androidx.test.core.app.ApplicationProvider
-import com.sergiocruz.easypermissions.testhelper.ActivityController
-import com.sergiocruz.easypermissions.testhelper.FragmentController
-import com.sergiocruz.easypermissions.testhelper.TestActivity
-import com.sergiocruz.easypermissions.testhelper.TestAppCompatActivity
-import com.sergiocruz.easypermissions.testhelper.TestFragment
-import com.sergiocruz.easypermissions.testhelper.TestSupportFragmentActivity
+import com.serggioc.easypermissions.testhelper.ActivityController
+import com.serggioc.easypermissions.testhelper.FragmentController
+import com.serggioc.easypermissions.testhelper.TestActivity
+import com.serggioc.easypermissions.testhelper.TestAppCompatActivity
+import com.serggioc.easypermissions.testhelper.TestFragment
+import com.serggioc.easypermissions.testhelper.TestSupportFragmentActivity
 
 import com.google.common.truth.Truth.assertThat
 import junit.framework.Assert.fail
@@ -41,7 +39,7 @@ import org.mockito.Mockito.`when`
 import org.robolectric.Shadows.shadowOf
 
 /**
- * Basic Robolectric tests for [com.sergiocruz.easypermissions.EasyPermissions].
+ * Basic Robolectric tests for [com.serggioc.easypermissions.EasyPermissions].
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [23])

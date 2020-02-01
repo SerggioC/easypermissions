@@ -1,4 +1,4 @@
-package com.sergiocruz.easypermissions
+package com.serggioc.easypermissions
 
 import android.app.Activity
 import android.app.Dialog
@@ -11,7 +11,7 @@ import android.provider.Settings
 import androidx.annotation.RestrictTo
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.sergiocruz.easypermissions.AppSettingsDialog.CREATOR.EXTRA_APP_SETTINGS
+import com.serggioc.easypermissions.AppSettingsDialog.CREATOR.EXTRA_APP_SETTINGS
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 class AppSettingsDialogHolderActivity : AppCompatActivity(), DialogInterface.OnClickListener {

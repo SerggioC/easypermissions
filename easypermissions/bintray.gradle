@@ -1,12 +1,12 @@
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'maven-publish'
+apply plugin: "com.jfrog.bintray"
+apply plugin: "maven-publish"
 
-group = mavenGroup
+group = mavenGroupID
 version = mavenVersion
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
+    archiveClassifier = "sources"
 }
 
 task javadoc(type: Javadoc) {
@@ -18,7 +18,7 @@ task javadoc(type: Javadoc) {
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
+    archiveClassifier = "javadoc"
     from javadoc.destinationDir
 }
 
@@ -31,7 +31,7 @@ publishing {
     publications {
         library(MavenPublication) {
 
-            groupId mavenGroup
+            groupId mavenGroupID
             artifactId mavenArtifactId
             version mavenVersion
 
@@ -41,44 +41,44 @@ publishing {
 
             pom.withXml {
                 // Name
-                asNode().appendNode('name', "EasyPermissions")
+                asNode().appendNode("name", "EasyPermissions")
 
                 // Description
-                asNode().appendNode('description', 'A wrapper library for basic Android M system permissions logic')
+                asNode().appendNode("description", "A wrapper library for basic Android M system permissions logic in kotlin. Original from google samples https://github.com/googlesamples/easypermissions")
 
                 // URL
-                asNode().appendNode('url', "${githubUrl}")
+                asNode().appendNode("url", githubUrl)
 
                 // Inception Year
-                asNode().appendNode('inceptionYear', '2015')
+                asNode().appendNode("inceptionYear", "2020")
 
                 // Licenses
-                def license = asNode().appendNode('licenses').appendNode('license')
-                license.appendNode('name', 'The Apache Software License, Version 2.0')
-                license.appendNode('url', 'http://www.apache.org/licenses/LICENSE-2.0.txt')
-                license.appendNode('distribution', 'repo')
+                def license = asNode().appendNode("licenses").appendNode("license")
+                license.appendNode("name", "The Apache Software License, Version 2.0")
+                license.appendNode("url", "http://www.apache.org/licenses/LICENSE-2.0.txt")
+                license.appendNode("distribution", "repo")
 
                 // Developers
-                def developer = asNode().appendNode('developers').appendNode('developer')
-                developer.appendNode('name', 'Google')
+                def developer = asNode().appendNode("developers").appendNode("developer")
+                developer.appendNode("name", "Google")
 
                 // SCM
-                def scm = asNode().appendNode('scm')
-                scm.appendNode('connection', "${githubUrl}.git")
-                scm.appendNode('url', "${githubUrl}")
+                def scm = asNode().appendNode("scm")
+                scm.appendNode("connection", githubRepo)
+                scm.appendNode("url", githubUrl)
 
                 // Dependencies
-                def dependenciesNode = asNode().getAt('dependencies')[0]
+                def dependenciesNode = asNode().getAt("dependencies")[0]
                 if (dependenciesNode == null) {
-                    dependenciesNode = asNode().appendNode('dependencies')
+                    dependenciesNode = asNode().appendNode("dependencies")
                 }
 
-                // Add all that are 'compile'
+                // Add all that are "compile"
                 configurations.api.allDependencies.each {
-                    def dependencyNode = dependenciesNode.appendNode('dependency')
-                    dependencyNode.appendNode('groupId', it.group)
-                    dependencyNode.appendNode('artifactId', it.name)
-                    dependencyNode.appendNode('version', it.version)
+                    def dependencyNode = dependenciesNode.appendNode("dependency")
+                    dependencyNode.appendNode("groupId", it.group)
+                    dependencyNode.appendNode("artifactId", it.name)
+                    dependencyNode.appendNode("version", it.version)
                 }
             }
         }
@@ -86,24 +86,23 @@ publishing {
 }
 
 bintray {
-    user = hasProperty('BINTRAY_USER') ? getProperty('BINTRAY_USER') : System.getenv('BINTRAY_USER')
-    key = hasProperty('BINTRAY_KEY') ? getProperty('BINTRAY_KEY') : System.getenv('BINTRAY_KEY')
+
+    user = hasProperty("BINTRAY_USER") ? getProperty("BINTRAY_USER") : System.getenv("BINTRAY_USER")
+    key = hasProperty("BINTRAY_KEY") ? getProperty("BINTRAY_KEY") : System.getenv("BINTRAY_KEY")
 
     filesSpec {
         from "$buildDir/publications/library/pom-default.xml"
-        into "pub/sergiocruz/$mavenArtifactId/$mavenVersion/"
-        rename { String fileName ->
-            "${mavenArtifactId}-${mavenVersion}.pom"
-        }
+        into "sergiocruz/$mavenArtifactId/$mavenVersion/"
+        rename { String fileName -> "${mavenArtifactId}-${mavenVersion}.pom" }
     }
 
-    configurations = [ 'archives' ]
+    configurations = [ "archives" ]
 
     pkg {
         repo = projectName
         name = mavenArtifactId
         userOrg = bintrayOrg
-        licenses = [ 'Apache-2.0' ]
+        licenses = [ "Apache-2.0" ]
         vcsUrl = "${githubUrl}.git"
 
         version {
