@@ -1,15 +1,29 @@
+ext {
+    compileSdk = 29
+    targetSdk = 29
+    minSdk = 14
+}
+
 buildscript {
+
+    ext {
+        kotlin_version = "1.3.61"
+        dokka_version = "0.10.0"
+    }
+
     repositories {
-        jcenter()
         google()
+        jcenter()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
-        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.15.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
+        classpath "com.android.tools.build:gradle:3.5.3"
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
+        classpath "com.vanniktech:gradle-android-junit-jacoco-plugin:0.15.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     }
 }
 
@@ -17,27 +31,12 @@ apply plugin: "com.vanniktech.android.junit.jacoco"
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        jcenter()
+        mavenCentral()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-ext {
-    projectName = 'EasyPermissions.kt'
-    projectDesc = 'A wrapper library for basic Android M system permissions logic in Kotlin'
-
-    githubUrl = 'https://github.com/SerggioC/easypermissions'
-
-    mavenGroup = 'com.sergiocruz'
-    mavenArtifactId = 'easypermissions'
-    mavenVersion = '3.1.0'
-
-    bintrayOrg = 'easygoogle'
-
-    compileSdk = 29
-    targetSdk = 29
 }

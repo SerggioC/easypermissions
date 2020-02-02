@@ -1,0 +1,23 @@
+ext {
+    bintrayRepo = "android"
+    bintrayName = "easypermissions"
+
+    publishedGroupId = "com.serggioc"
+    libraryName = "easypermissions"
+    artifact = "easypermissions"
+
+    libraryDescription = "A wrapper library for basic Android system permissions logic in Kotlin; original from google samples."
+
+    siteUrl = "https://github.com/SerggioC/easypermissions"
+    gitUrl = "https://github.com/SerggioC/easypermissions.git"
+
+    libraryVersion = "3.3.0"
+
+    developerId = "serggioc"
+    developerName = "Sergio Cruz"
+    developerEmail = "sergiocrz@hotmail.com"
+
+    licenseName = "The Apache Software License, Version 2.0"
+    licenseUrl = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+    allLicenses = ["Apache-2.0"]
+}

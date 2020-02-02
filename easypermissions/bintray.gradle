@@ -1,120 +1,71 @@
-apply plugin: "com.jfrog.bintray"
-apply plugin: "maven-publish"
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'org.jetbrains.dokka'
 
-group = mavenGroupID
-version = mavenVersion
+version = libraryVersion
 
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    archiveClassifier = "sources"
+if (project.hasProperty("android")) { // Android libraries
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    task javadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    }
+} else { // Java libraries
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
 }
 
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += configurations.compile
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-
-    failOnError = false
+dokka {
+    outputFormat = 'javadoc'
+    outputDirectory = "$buildDir/docs/javaDoc"
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier = "javadoc"
+task javadocJar(type: Jar, dependsOn: dokka) {
+    classifier = 'javadoc'
     from javadoc.destinationDir
 }
 
 artifacts {
-    archives sourcesJar
     archives javadocJar
+    archives sourcesJar
 }
 
-publishing {
-    publications {
-        library(MavenPublication) {
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-            groupId mavenGroupID
-            artifactId mavenArtifactId
-            version mavenVersion
+bintray {
 
-            artifact "$buildDir/outputs/aar/$mavenArtifactId-release.aar"
-            artifact javadocJar
-            artifact sourcesJar
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
 
-            pom.withXml {
-                // Name
-                asNode().appendNode("name", "EasyPermissions")
-
-                // Description
-                asNode().appendNode("description", "A wrapper library for basic Android M system permissions logic in kotlin. Original from google samples https://github.com/googlesamples/easypermissions")
-
-                // URL
-                asNode().appendNode("url", githubUrl)
-
-                // Inception Year
-                asNode().appendNode("inceptionYear", "2020")
-
-                // Licenses
-                def license = asNode().appendNode("licenses").appendNode("license")
-                license.appendNode("name", "The Apache Software License, Version 2.0")
-                license.appendNode("url", "http://www.apache.org/licenses/LICENSE-2.0.txt")
-                license.appendNode("distribution", "repo")
-
-                // Developers
-                def developer = asNode().appendNode("developers").appendNode("developer")
-                developer.appendNode("name", "Google")
-
-                // SCM
-                def scm = asNode().appendNode("scm")
-                scm.appendNode("connection", githubRepo)
-                scm.appendNode("url", githubUrl)
-
-                // Dependencies
-                def dependenciesNode = asNode().getAt("dependencies")[0]
-                if (dependenciesNode == null) {
-                    dependenciesNode = asNode().appendNode("dependencies")
-                }
-
-                // Add all that are "compile"
-                configurations.api.allDependencies.each {
-                    def dependencyNode = dependenciesNode.appendNode("dependency")
-                    dependencyNode.appendNode("groupId", it.group)
-                    dependencyNode.appendNode("artifactId", it.name)
-                    dependencyNode.appendNode("version", it.version)
-                }
+    configurations = ['archives']
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        publish = true
+        publicDownloadNumbers = true
+        version {
+            desc = libraryDescription
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = properties.getProperty("bintray.gpg.password")
             }
         }
     }
 }
 
-bintray {
 
-    user = hasProperty("BINTRAY_USER") ? getProperty("BINTRAY_USER") : System.getenv("BINTRAY_USER")
-    key = hasProperty("BINTRAY_KEY") ? getProperty("BINTRAY_KEY") : System.getenv("BINTRAY_KEY")
-
-    filesSpec {
-        from "$buildDir/publications/library/pom-default.xml"
-        into "sergiocruz/$mavenArtifactId/$mavenVersion/"
-        rename { String fileName -> "${mavenArtifactId}-${mavenVersion}.pom" }
-    }
-
-    configurations = [ "archives" ]
-
-    pkg {
-        repo = projectName
-        name = mavenArtifactId
-        userOrg = bintrayOrg
-        licenses = [ "Apache-2.0" ]
-        vcsUrl = "${githubUrl}.git"
-
-        version {
-            name = mavenVersion
-            released = new Date()
-        }
-    }
-}
-
-afterEvaluate { project ->
-    def pomTask = "generatePomFileForLibraryPublication"
-
-    // Convenience task to prepare everything we need for releases
-    task prepareArtifacts(dependsOn: [javadocJar, sourcesJar, assembleRelease, pomTask]) {}
+task pushToBintray {
+    dependsOn("install")
+    dependsOn("bintrayUpload")
 }
